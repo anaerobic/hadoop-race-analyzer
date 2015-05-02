@@ -9,5 +9,5 @@ Usage:
 1. Copy that hadoop-race-analyzer.jar to the working\share directory
 2. Copy the working directory to ~/working on your host machine
 3. Run sh ~/working/docker-up.sh
-4. Run sh share/hadoop-race-analyzer.sh from inside the Hadoop container
+4. Run sh share/race-analyzer.sh from inside the Hadoop container
 5. ᕕ( ᐛ )ᕗ
