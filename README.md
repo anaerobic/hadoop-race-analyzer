@@ -9,5 +9,5 @@ Usage:
 1. Copy that hadoop-race-analyzer.jar to the docker\share directory
 2. Copy the docker directory to ~/docker on your host machine
 3. Run sh ~/docker/docker-up.sh
-4. Run sh share/word-count.sh from inside the Hadoop container
+4. Run sh share/race-analyzer.sh from inside the Hadoop container
 5. ᕕ( ᐛ )ᕗ
