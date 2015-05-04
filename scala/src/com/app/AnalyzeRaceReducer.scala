@@ -1,8 +1,9 @@
 package com.app
 
 
-import org.apache.hadoop.mapreduce.{Mapper, Reducer}
-import org.apache.hadoop.io.{LongWritable, IntWritable, Text}
+import org.apache.hadoop.io.{IntWritable, Text}
+import org.apache.hadoop.mapreduce.Reducer
+
 import scala.collection.JavaConversions._
 
 class AnalyzeRaceReducer extends Reducer[Text, IntWritable, Text, IntWritable] {
