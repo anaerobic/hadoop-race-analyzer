@@ -6,7 +6,7 @@ bin/hdfs dfs -mkdir /hdfs
 
 bin/hdfs dfs -copyFromLocal /share/data/race-results.json /hdfs/race-results.json
 
-bin/hdfs fs -rm -r /hdfs-output
+bin/hdfs dfs -rm -r /hdfs-output
 
 bin/hadoop jar /share/hadoop-race-analyzer.jar app.AnalyzeRace /hdfs /hdfs-output
 

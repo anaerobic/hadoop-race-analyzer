@@ -1,1 +1,1 @@
-docker run -v ~/working/share:/share -i -t sequenceiq/hadoop-docker:2.6.0 /etc/bootstrap.sh -bash
+docker run --rm -p 8088:8088 -p 8042:8042 -v ~/working/share:/share -i -t sequenceiq/hadoop-docker:2.6.0 /etc/bootstrap.sh -bash
