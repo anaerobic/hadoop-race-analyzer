@@ -6,7 +6,7 @@ bin/hdfs dfs -mkdir /hdfs
 
 bin/hdfs dfs -mkdir /hdfs/race
 
-bin/hdfs dfs -copyFromLocal /share/race/data/results.json /hdfs/race/results
+bin/hdfs dfs -copyFromLocal /share/race/data/results /hdfs/race/results
 
 bin/hdfs dfs -rm -r /hdfs-output/race
 
