@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd $HADOOP_PREFIX
 
 #bin/hdfs dfsadmin -safemode leave
