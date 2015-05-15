@@ -1,12 +1,11 @@
 package com.app
 
 import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.mapreduce.Job
-import org.apache.hadoop.io.{IntWritable, Text}
 import org.apache.hadoop.fs.Path
+import org.apache.hadoop.io.{DoubleWritable, Text}
+import org.apache.hadoop.mapreduce.Job
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat
-import java.util
 
 object AnalyzeRace {
 
@@ -20,7 +19,9 @@ object AnalyzeRace {
     job.setReducerClass(classOf[AnalyzeRaceReducer])
     job.setCombinerClass(classOf[AnalyzeRaceReducer])
     job.setMapOutputKeyClass(classOf[Text])
-    job.setMapOutputValueClass(classOf[IntWritable])
+    job.setMapOutputValueClass(classOf[DoubleWritable])
+    job.setOutputKeyClass(classOf[Text])
+    job.setOutputValueClass(classOf[DoubleWritable])
 
     val outputPath: Path = new Path(args(2))
 

@@ -1,24 +1,33 @@
 package com.app
 
-import org.apache.hadoop.io.{IntWritable, Text}
+import org.apache.hadoop.io.{DoubleWritable, LongWritable, Text}
 import org.apache.hadoop.mapreduce.Mapper
-import scala.util.parsing.json.{JSON, JSONObject}
 
-class AnalyzeRaceMap extends Mapper[IntWritable, Text, Text, Text] {
+import scala.util.parsing.json.JSON
 
-  type MapperContext = Mapper[IntWritable, Text, Text, Text]#Context
+class AnalyzeRaceMap extends Mapper[LongWritable, Text, Text, DoubleWritable] {
+
+  type MapperContext = Mapper[LongWritable, Text, Text, DoubleWritable]#Context
 
   case class Result(groupName: String = "", bib: Double = 0, time: String = "", age: Double = 0)
 
-  override def map(key: IntWritable, value: Text, context: MapperContext): Unit = {
+  override def map(key: LongWritable, value: Text, context: MapperContext): Unit = {
 
-    JSON.parseFull(value.toString().split('\t')(1))
-      .map(x => x.asInstanceOf[Map[String, Any]])
-      .map(x => Result(groupName = x("groupName").asInstanceOf[String], bib = x("bib").asInstanceOf[Double], time = x("time").asInstanceOf[String], age = x("age").asInstanceOf[Double]))
-      .foreach(x => {
-        val json = JSONObject(Map("time" -> x.time, "age" -> x.age))
-        context.write(new Text(x.groupName), new Text(json.toString()))
-      })
+    val json = JSON.parseFull(value.toString.split('\t')(1))
+
+    json match {
+      case Some(value) =>
+        val map: Map[String, Any] = value.asInstanceOf[Map[String, Any]]
+        val result = Result(
+          groupName = map("groupName").asInstanceOf[String],
+          bib = map("bib").asInstanceOf[Double],
+          time = map("time").asInstanceOf[String],
+          age = map("age").asInstanceOf[Double]
+        )
+
+        context.write(new Text(result.groupName), new DoubleWritable(result.age))
+      case (None) =>
+    }
   }
 
 }
