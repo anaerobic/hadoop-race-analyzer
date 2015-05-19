@@ -1,3 +1,48 @@
+# Created by https://www.gitignore.io
+
+### Eclipse ###
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+target/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+*/.cache
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# TeXlipse plugin
+.texlipse
+
+#Maven Shade plugin
+*/dependency-reduced-pom.xml
+
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
 
 *.iml
