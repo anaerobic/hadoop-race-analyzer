@@ -37,7 +37,7 @@ class HdfsToPostgresMap extends Mapper[LongWritable, Text, Text, Text] {
         var con: Connection = null
         var pst: PreparedStatement = null
 
-        val url = "jdbc:postgresql://192.168.1.20/postgres"
+        val url = "jdbc:postgresql://postgres.lacolhost.com/postgres"
         val user = "postgres"
         val password = "LifeTime1"
 
